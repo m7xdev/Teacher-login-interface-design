@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>إنشاء حساب - عبقري الرياضيات</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Cairo','sans-serif'] },
+      animation: {
+        'fade-in-up': 'fadeInUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        fadeInUp: { '0%':{opacity:'0',transform:'translateY(16px)'}, '100%':{opacity:'1',transform:'translateY(0)'} },
+        float: { '0%,100%':{transform:'translateY(0)'}, '50%':{transform:'translateY(-8px)'} },
+      }
+    }
+  }
+}
+</script>
+<style>
+:root[data-theme="dark"]{
+  --bg:#061423;
+  --page-bg: radial-gradient(1200px 600px at 20% -10%, rgba(0,102,255,0.16), transparent 60%), radial-gradient(900px 500px at 90% 110%, rgba(0,218,243,0.10), transparent 60%), #061423;
+  --card-bg: rgba(255,255,255,0.14);
+  --card-bg-2: rgba(255,255,255,0.07);
+  --card-border: rgba(255,255,255,0.16);
+  --card-border-top: rgba(255,255,255,0.30);
+  --card-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 8px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.22);
+  --card-blur: 32px;
+  --input-bg: rgba(255,255,255,0.07);
+  --input-border: rgba(255,255,255,0.12);
+  --input-hover-bg: rgba(255,255,255,0.11);
+  --input-hover-border: rgba(255,255,255,0.18);
+  --input-focus-bg: rgba(255,255,255,0.13);
+  --input-focus-border: #00DAF3;
+  --input-focus-shadow: 0 0 0 3.5px rgba(0,218,243,0.14);
+  --input-text: #EAF0FF;
+  --input-placeholder: rgba(140,144,161,0.75);
+  --input-icon: rgba(140,144,161,0.85);
+  --input-icon-focus: #00DAF3;
+  --input-error: #ff8a8a;
+  --btn-from:#007E8D; --btn-to:#0066FF;
+  --btn-shadow: 0 8px 20px -6px rgba(0,102,255,0.45);
+  --text-main:#D6E4F9; --text-heading:#FFFFFF; --text-muted:#8C90A1; --text-dim: rgba(214,228,249,0.78);
+  --math: rgba(255,255,255,0.15);
+  --math-strong: rgba(255,255,255,0.22);
+  --divider: rgba(255,255,255,0.10);
+  --google-bg: rgba(255,255,255,0.07); --google-border: rgba(255,255,255,0.10); --google-hover: rgba(255,255,255,0.10);
+  --footer: rgba(140,144,161,0.62);
+  --gradient-from:#B3C5FF; --gradient-to:#FFB781;
+  --focus-ring: 0 0 0 3px rgba(0,218,243,0.18);
+  --check-bg: rgba(255,255,255,0.07); --check-border: rgba(255,255,255,0.14);
+}
+:root[data-theme="light"]{
+  --bg:#eef2ff;
+  --page-bg: radial-gradient(1100px 600px at 15% -10%, rgba(0,91,192,0.08), transparent 60%), radial-gradient(1000px 600px at 85% 105%, rgba(109,59,215,0.06), transparent 60%), #eef2ff;
+  --card-bg: rgba(255,255,255,0.58);
+  --card-bg-2: rgba(255,255,255,0.38);
+  --card-border: rgba(255,255,255,0.75);
+  --card-border-top: rgba(255,255,255,0.95);
+  --card-shadow: 0 20px 48px rgba(31,45,90,0.10), 0 8px 20px rgba(31,45,90,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
+  --card-blur: 28px;
+  --input-bg: rgba(255,255,255,0.62);
+  --input-border: rgba(194,198,213,0.38);
+  --input-hover-bg: rgba(255,255,255,0.78);
+  --input-hover-border: rgba(114,119,132,0.22);
+  --input-focus-bg: rgba(255,255,255,0.92);
+  --input-focus-border: #005bc0;
+  --input-focus-shadow: 0 0 0 3.5px rgba(0,91,192,0.10);
+  --input-text: #191c22;
+  --input-placeholder: rgba(114,119,132,0.60);
+  --input-icon: rgba(114,119,132,0.70);
+  --input-icon-focus: #005bc0;
+  --input-error: #ba1a1a;
+  --btn-from:#016874; --btn-to:#005bc0;
+  --btn-shadow: 0 8px 20px -7px rgba(0,91,192,0.28);
+  --text-main:#424753; --text-heading:#191c22; --text-muted:#727784; --text-dim: rgba(66,71,83,0.82);
+  --math: rgba(0,91,192,0.13);
+  --math-strong: rgba(0,91,192,0.19);
+  --divider: rgba(194,198,213,0.32);
+  --google-bg: rgba(255,255,255,0.62); --google-border: rgba(255,255,255,0.80); --google-hover: rgba(255,255,255,0.82);
+  --footer: rgba(114,119,132,0.72);
+  --gradient-from:#005bc0; --gradient-to:#016874;
+  --focus-ring: 0 0 0 3px rgba(0,91,192,0.14);
+  --check-bg: rgba(255,255,255,0.62); --check-border: rgba(194,198,213,0.38);
+}
+:root[data-theme="purple"]{
+  --bg:#0b1326;
+  --page-bg: radial-gradient(1100px 600px at 20% -10%, rgba(109,59,215,0.18), transparent 60%), radial-gradient(900px 600px at 90% 110%, rgba(251,171,255,0.12), transparent 60%), #0b1326;
+  --card-bg: rgba(255,255,255,0.14);
+  --card-bg-2: rgba(255,255,255,0.07);
+  --card-border: rgba(251,171,255,0.20);
+  --card-border-top: rgba(255,255,255,0.32);
+  --card-shadow: 0 24px 64px rgba(0,0,0,0.50), 0 8px 24px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.22);
+  --card-blur: 32px;
+  --input-bg: rgba(255,255,255,0.07);
+  --input-border: rgba(255,255,255,0.12);
+  --input-hover-bg: rgba(255,255,255,0.11);
+  --input-hover-border: rgba(251,171,255,0.20);
+  --input-focus-bg: rgba(255,255,255,0.13);
+  --input-focus-border: #fbabff;
+  --input-focus-shadow: 0 0 0 3.5px rgba(251,171,255,0.14);
+  --input-text: #F5F0FF;
+  --input-placeholder: rgba(149,142,160,0.70);
+  --input-icon: rgba(149,142,160,0.82);
+  --input-icon-focus: #fbabff;
+  --input-error: #ff8a8a;
+  --btn-from:#d08cff; --btn-to:#5b2cc8;
+  --btn-shadow: 0 10px 24px -8px rgba(109,59,215,0.45);
+  --text-main:#dae2fd; --text-heading:#ffffff; --text-muted:#958ea0; --text-dim: rgba(218,226,253,0.84);
+  --math: rgba(255,255,255,0.14);
+  --math-strong: rgba(251,171,255,0.20);
+  --divider: rgba(255,255,255,0.12);
+  --google-bg: rgba(255,255,255,0.07); --google-border: rgba(255,255,255,0.12); --google-hover: rgba(255,255,255,0.12);
+  --footer: rgba(255,255,255,0.42);
+  --gradient-from:#ffffff; --gradient-to:#fbabff;
+  --focus-ring: 0 0 0 3px rgba(251,171,255,0.18);
+  --check-bg: rgba(255,255,255,0.07); --check-border: rgba(255,255,255,0.14);
+}
+html{ scrollbar-gutter: stable; background: var(--page-bg); background-color: var(--bg); min-height:100vh; }
+body{ background: transparent; min-height:100vh; min-height:100dvh; display:flex; flex-direction:column; position:relative; overflow-x:hidden; margin:0; color: var(--text-main); }
+#glcanvas{position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; opacity:0.45;}
+.math-bg{ position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:1; }
+.math-symbol{ position:absolute; font-family: 'Times New Roman', serif; color: var(--math); line-height:1; user-select:none; pointer-events:none; animation: swim 22s ease-in-out infinite; will-change: transform; }
+.math-symbol.strong{ color: var(--math-strong); }
+@keyframes swim { 0%{ transform: translate(0,0) rotate(0deg) } 25%{ transform: translate(14px,-12px) rotate(1deg) } 50%{ transform: translate(-10px,10px) rotate(-1deg) } 75%{ transform: translate(12px,12px) rotate(0.5deg) } 100%{ transform: translate(0,0) rotate(0deg) } }
+@keyframes floatY { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-12px) } }
+@keyframes spin { to{ transform: rotate(360deg) } }
+.glass-card{ background: linear-gradient(135deg, var(--card-bg), var(--card-bg-2)); backdrop-filter: blur(var(--card-blur)) saturate(180%); -webkit-backdrop-filter: blur(var(--card-blur)) saturate(180%); border:1px solid var(--card-border); border-top:1px solid var(--card-border-top); box-shadow: var(--card-shadow); position:relative; }
+.glass-card::before{ content:""; position:absolute; inset:0; border-radius:inherit; padding:1px; background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.02)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none; }
+.theme-switcher{ position:fixed; top:14px; left:14px; z-index:50; display:flex; gap:5px; padding:5px; background: linear-gradient(135deg, var(--card-bg), var(--card-bg-2)); backdrop-filter: blur(var(--card-blur)) saturate(180%); -webkit-backdrop-filter: blur(var(--card-blur)) saturate(180%); border:1px solid var(--card-border); border-top:1px solid var(--card-border-top); border-radius:999px; box-shadow: var(--card-shadow); }
+.theme-btn{ width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; border:1px solid transparent; cursor:pointer; font-size:15px; background: transparent; color: var(--text-muted); transition: all 0.25s ease; }
+.theme-btn:hover{ background: var(--google-hover); color: var(--text-heading); }
+.theme-btn.active{ background: linear-gradient(135deg, var(--btn-from), var(--btn-to)); color:#fff; border-color: rgba(255,255,255,0.18); box-shadow: var(--btn-shadow); }
+@media(max-width:480px){ .theme-switcher{ top:10px; left:50%; transform:translateX(-50%); } }
+.input-field{ background: var(--input-bg); border:1.5px solid var(--input-border); color: var(--input-text); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.25s ease; }
+.input-field::placeholder{ color: var(--input-placeholder); }
+.input-field:hover{ background: var(--input-hover-bg); border-color: var(--input-hover-border); }
+.input-field:focus{ background: var(--input-focus-bg); border-color: var(--input-focus-border); box-shadow: var(--input-focus-shadow); outline:none; }
+.input-field.is-error{ border-color: #ff8a8a; background: rgba(255,138,138,0.08); }
+.field-error{ font-size:12.5px; color: #ff8a8a; padding: 0 10px; margin-top:2px; display:none; font-weight:500; }
+.field-error.visible{ display:block; }
+:root[data-theme="light"] .field-error{ color:#ba1a1a; }
+.input-icon{ color: var(--input-icon); transition: color 0.25s ease; }
+.group:focus-within .input-icon{ color: var(--input-icon-focus); }
+.eye-btn{ width:36px; height:36px; border-radius:999px; display:flex; align-items:center; justify-content:center; color: var(--input-icon); transition: all 0.2s ease; }
+.eye-btn:hover{ background: var(--google-hover); color: var(--input-icon-focus); }
+.btn-gradient{ background: linear-gradient(135deg, var(--btn-from) 0%, var(--btn-to) 100%); box-shadow: var(--btn-shadow); }
+.btn-gradient:hover{ transform: translateY(-1px); filter:brightness(1.06); }
+.text-gradient{ background: linear-gradient(to right, var(--gradient-from), var(--gradient-to)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.spinner{ width:18px; height:18px; border:2px solid rgba(255,255,255,0.28); border-top-color:#fff; border-radius:50%; animation: spin 0.7s linear infinite; }
+.strength-bar{ height:4px; border-radius:999px; background: var(--divider); overflow:hidden; }
+.strength-fill{ height:100%; border-radius:999px; transition: all 0.35s ease; width:0; }
+.custom-check{ width:20px; height:20px; border-radius:6px; border:1.5px solid var(--check-border); background: var(--check-bg); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition: all 0.2s ease; cursor:pointer; }
+.custom-check.checked{ background: linear-gradient(135deg, var(--btn-from), var(--btn-to)); border-color: transparent; color:#fff; }
+</style>
+</head>
+<body class="font-sans antialiased flex flex-col items-center justify-center p-4 sm:p-6">
+<canvas id="glcanvas" aria-hidden="true"></canvas>
+<div class="theme-switcher" role="tablist" aria-label="اختيار الثيم">
+  <button class="theme-btn active" data-theme-btn="dark" aria-selected="true">🌙</button>
+  <button class="theme-btn" data-theme-btn="light" aria-selected="false">☀️</button>
+  <button class="theme-btn" data-theme-btn="purple" aria-selected="false">✨</button>
+</div>
+<div class="math-bg" aria-hidden="true">
+  <div class="math-symbol" style="top:6%; left:8%; font-size:145px; animation-duration:24s;">∫</div>
+  <div class="math-symbol strong" style="top:12%; right:10%; font-size:125px; animation-duration:28s; animation-delay:-4s; animation-name: floatY;">π</div>
+  <div class="math-symbol" style="top:30%; left:5%; font-size:115px; animation-duration:22s; animation-delay:-2s;">∑</div>
+  <div class="math-symbol strong" style="top:26%; right:16%; font-size:135px; animation-duration:26s; animation-delay:-7s;">∞</div>
+  <div class="math-symbol" style="top:50%; left:40%; font-size:165px; animation-duration:30s; animation-delay:-3s; opacity:0.85;">√</div>
+  <div class="math-symbol" style="top:64%; right:7%; font-size:105px; animation-duration:20s; animation-delay:-6s; animation-name: floatY;">θ</div>
+  <div class="math-symbol strong" style="bottom:8%; left:12%; font-size:130px; animation-duration:25s; animation-delay:-5s;">Δ</div>
+  <div class="math-symbol" style="bottom:16%; right:14%; font-size:120px; animation-duration:23s; animation-delay:-8s;">Ω</div>
+</div>
+<main class="w-full max-w-[440px] mx-auto flex flex-col items-center gap-6 py-6 sm:py-8 flex-grow relative z-10 justify-center mt-10 sm:mt-0" style="z-index:10;">
+  <header class="flex flex-col items-center gap-3 w-full relative opacity-0 animate-fade-in-up" style="animation-delay:80ms; animation-fill-mode:forwards;">
+    <div class="w-[84px] h-[84px] sm:w-[88px] sm:h-[88px] rounded-[28px] btn-gradient flex items-center justify-center animate-float" style="box-shadow: var(--btn-shadow);">
+      <svg class="text-white" fill="none" height="42" viewBox="0 0 24 24" width="42"><path d="M18 6H8.83L14.41 11.59L15 12.17L14.41 12.76L8.83 18H18V20H6V18.17L12.59 11.59L6 5V3H18V6Z" fill="currentColor"></path></svg>
+    </div>
+    <div class="flex flex-col items-center gap-1 mt-1 text-center">
+      <h1 class="text-[26px] sm:text-[28px] font-bold tracking-wide" style="color: var(--text-heading);">عبقري <span class="text-gradient">الرياضيات</span></h1>
+      <p class="text-[13px] font-medium" style="color: var(--text-dim);">انضم إلى آلاف الطلاب المتفوقين</p>
+    </div>
+  </header>
+  <section class="w-full glass-card rounded-[28px] sm:rounded-[32px] p-5 sm:p-7 relative overflow-hidden opacity-0 animate-fade-in-up" style="animation-delay:220ms; animation-fill-mode:forwards;">
+    <div class="text-center mb-5 sm:mb-6 relative z-10">
+      <h2 class="font-bold text-[17px]" style="color: var(--text-heading);">إنشاء حساب جديد</h2>
+      <p class="text-[12.5px] mt-1" style="color: var(--text-muted);">ابدأ رحلتك التعليمية بخطوة واحدة</p>
+    </div>
+    <form class="flex flex-col gap-4 relative z-10" id="signupForm" novalidate>
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-[6px]">
+          <label class="font-semibold text-[13px] px-1" style="color: var(--text-heading); opacity:0.92;" for="fullname">الاسم الكامل</label>
+          <div class="relative flex items-center group">
+            <div class="absolute right-3.5 pointer-events-none input-icon"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewBox="0 0 24 24" width="18"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+            <input class="input-field w-full rounded-[16px] sm:rounded-[18px] py-3.5 px-4 pr-11 text-right outline-none text-[14.5px]" id="fullname" name="fullname" type="text" placeholder="أحمد محمد" autocomplete="name" required aria-describedby="fullname-error" />
+          </div>
+          <p class="field-error" id="fullname-error" role="alert"></p>
+        </div>
+        <div class="flex flex-col gap-[6px]">
+          <label class="font-semibold text-[13px] px-1" style="color: var(--text-heading); opacity:0.92;" for="email">البريد الإلكتروني</label>
+          <div class="relative flex items-center group">
+            <div class="absolute right-3.5 pointer-events-none input-icon"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewBox="0 0 24 24" width="18"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg></div>
+            <input class="input-field w-full rounded-[16px] sm:rounded-[18px] py-3.5 px-4 pr-11 text-right outline-none text-[14.5px]" dir="ltr" id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required aria-describedby="email-error" />
+          </div>
+          <p class="field-error" id="email-error" role="alert"></p>
+        </div>
+        <div class="flex flex-col gap-[6px]">
+          <label class="font-semibold text-[13px] px-1" style="color: var(--text-heading); opacity:0.92;" for="password">كلمة المرور</label>
+          <div class="relative flex items-center group">
+            <div class="absolute right-3.5 pointer-events-none input-icon"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewBox="0 0 24 24" width="18"><rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+            <input class="input-field w-full rounded-[16px] sm:rounded-[18px] py-3.5 px-4 pr-11 pl-[50px] text-right outline-none text-[14.5px]" dir="ltr" id="password" name="password" type="password" placeholder="••••••••" autocomplete="new-password" required aria-describedby="password-error" />
+            <button class="eye-btn absolute left-[6px]" type="button" id="eyeBtn" aria-label="إظهار كلمة المرور"><span id="eyeIcon"><svg fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewBox="0 0 24 24" width="19"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><span id="eyeOffIcon" class="hidden"><svg fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewBox="0 0 24 24" width="19"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"></path><path d="M1 1l22 22"></path></svg></span></button>
+          </div>
+          <div class="px-1 mt-1"><div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div><p class="text-[11.5px] mt-1.5 font-medium" id="strengthText" style="color: var(--text-muted);"></p></div>
+          <p class="field-error" id="password-error" role="alert"></p>
+        </div>
+        <div class="flex flex-col gap-[6px]">
+          <label class="font-semibold text-[13px] px-1" style="color: var(--text-heading); opacity:0.92;" for="confirmPassword">تأكيد كلمة المرور</label>
+          <div class="relative flex items-center group">
+            <div class="absolute right-3.5 pointer-events-none input-icon"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewBox="0 0 24 24" width="18"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
+            <input class="input-field w-full rounded-[16px] sm:rounded-[18px] py-3.5 px-4 pr-11 pl-[50px] text-right outline-none text-[14.5px]" dir="ltr" id="confirmPassword" name="confirmPassword" type="password" placeholder="••••••••" autocomplete="new-password" required aria-describedby="confirm-error" />
+            <button class="eye-btn absolute left-[6px]" type="button" id="eyeBtn2" aria-label="إظهار التأكيد"><span id="eyeIcon2"><svg fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewBox="0 0 24 24" width="19"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><span id="eyeOffIcon2" class="hidden"><svg fill="none" height="19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewBox="0 0 24 24" width="19"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"></path><path d="M1 1l22 22"></path></svg></span></button>
+          </div>
+          <p class="field-error" id="confirm-error" role="alert"></p>
+        </div>
+        <label class="flex items-start gap-2.5 cursor-pointer mt-1" for="terms">
+          <input type="checkbox" id="terms" class="sr-only" required>
+          <span class="custom-check" id="customCheck" tabindex="0" role="checkbox" aria-checked="false"><svg class="hidden" id="checkIcon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <span class="text-[12.5px] leading-[1.7] font-medium" style="color: var(--text-muted);">أوافق على <a href="#" class="font-bold" style="color: var(--input-icon-focus);">الشروط والأحكام</a> و <a href="#" class="font-bold" style="color: var(--input-icon-focus);">سياسة الخصوصية</a></span>
+        </label>
+        <p class="field-error" id="terms-error" role="alert"></p>
+      </div>
+      <button class="w-full mt-1 btn-gradient text-white font-bold text-[15.5px] rounded-[16px] sm:rounded-[18px] py-3.5 px-6 flex items-center justify-center gap-3 group" type="submit" id="signupBtn"><span id="signupText">إنشاء حساب</span><span id="signupSpinner" class="hidden spinner"></span><span class="bg-white/20 rounded-full p-1.5 group-hover:bg-white/25 transition-colors shrink-0 flex items-center justify-center" id="signupArrow"><svg class="rotate-180 group-hover:-translate-x-0.5 transition-transform" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" width="15"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></button>
+    </form>
+    <div class="flex items-center gap-3 my-5">
+      <div class="flex-1 h-px" style="background: linear-gradient(to right, transparent, var(--divider));"></div>
+      <span class="text-[12.5px] font-medium px-2 whitespace-nowrap" style="color: var(--text-muted);">أو التسجيل باستخدام</span>
+      <div class="flex-1 h-px" style="background: linear-gradient(to left, transparent, var(--divider));"></div>
+    </div>
+    <div class="flex flex-col gap-3">
+      <button class="flex items-center justify-center gap-3 rounded-[16px] py-3 px-6 border w-full group font-medium text-[14px]" style="background: var(--google-bg); border-color: var(--google-border); color: var(--text-heading);" type="button"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24"><path d="M12.0003 4.75C13.7703 4.75 15.3553 5.36002 16.6053 6.54998L20.0303 3.125C17.9502 1.19 15.2353 0 12.0003 0C7.31028 0 3.25527 2.69 1.28027 6.60998L5.27028 9.70498C6.21525 6.86002 8.87028 4.75 12.0003 4.75Z" fill="#EA4335"></path><path d="M23.49 12.275C23.49 11.49 23.415 10.73 23.3 10H12V14.51H18.47C18.18 15.99 17.34 17.25 16.08 18.1L19.945 21.1C22.2 19.01 23.49 15.92 23.49 12.275Z" fill="#4285F4"></path><path d="M5.26498 14.2949C5.02498 13.5699 4.88501 12.7999 4.88501 11.9999C4.88501 11.1999 5.01998 10.4299 5.26498 9.7049L1.275 6.60986C0.46 8.22986 0 10.0599 0 11.9999C0 13.9399 0.46 15.7699 1.28 17.3899L5.26498 14.2949Z" fill="#FBBC05"></path><path d="M12.0004 24.0001C15.2404 24.0001 17.9654 22.935 19.9454 21.095L16.0804 18.095C15.0054 18.82 13.6204 19.245 12.0004 19.245C8.8704 19.245 6.21537 17.135 5.26538 14.29L1.27539 17.385C3.25539 21.31 7.3104 24.0001 12.0004 24.0001Z" fill="#34A853"></path></svg><span>المتابعة باستخدام جوجل</span></button>
+      <div class="flex justify-center items-center gap-2 py-3 px-4 rounded-[16px] border text-center" style="background: var(--google-bg); border-color: var(--divider);"><span class="font-medium text-[13px]" style="color: var(--text-muted);">لديك حساب بالفعل؟</span><a class="font-bold text-[13px]" style="color: var(--input-icon-focus);" href="index.html">تسجيل الدخول</a></div>
+    </div>
+  </section>
+  <footer class="w-full flex justify-between items-center pt-1 pb-2 mt-auto text-[11.5px] font-medium gap-4" style="color: var(--footer);"><span class="flex items-center gap-1.5">العربية</span><span dir="ltr">2026 Math Genius ©</span></footer>
+</main>
+<script>
+const THEMES = ['dark','light','purple'];
+const shaderColors = { dark:{c1:[0.024,0.078,0.137],c2:[0.0,0.4,1.0],c3:[0.0,0.494,0.553]}, light:{c1:[0.956,0.964,1.0],c2:[0.78,0.84,1.0],c3:[0.0,0.357,0.753]}, purple:{c1:[0.043,0.074,0.149],c2:[0.424,0.231,0.843],c3:[0.98,0.67,1.0]} };
+let currentTheme=localStorage.getItem('math-genius-theme')||'dark', gl, program, uColor1,uColor2,uColor3,uTime,uRes,uMouse;
+function applyTheme(t){ if(!THEMES.includes(t)) t='dark'; currentTheme=t; document.documentElement.setAttribute('data-theme',t); document.documentElement.style.colorScheme=t==='light'?'light':'dark'; localStorage.setItem('math-genius-theme',t); document.querySelectorAll('.theme-btn').forEach(b=>{ b.classList.toggle('active', b.dataset.themeBtn===t); }); if(gl&&program){ gl.useProgram(program); const s=shaderColors[t]; gl.uniform3f(uColor1,s.c1[0],s.c1[1],s.c1[2]); gl.uniform3f(uColor2,s.c2[0],s.c2[1],s.c2[2]); gl.uniform3f(uColor3,s.c3[0],s.c3[1],s.c3[2]); } }
+document.querySelectorAll('.theme-btn').forEach(b=> b.addEventListener('click', ()=> applyTheme(b.dataset.themeBtn)));
+function getStrength(pw){ let s=0; if(pw.length>=6)s++; if(pw.length>=8)s++; if(/[A-Z]/.test(pw)&&/[a-z]/.test(pw))s++; if(/[0-9]/.test(pw))s++; if(/[^A-Za-z0-9]/.test(pw))s++; return Math.min(s,4); }
+function updateStrength(){ const pw=document.getElementById('password').value, fill=document.getElementById('strengthFill'), text=document.getElementById('strengthText'); if(!fill||!text) return; if(!pw){ fill.style.width='0'; text.textContent=''; return; } const s=getStrength(pw), widths=['22%','42%','68%','88%','100%'], colors=['#ff7b7b','#ff9f43','#f1c40f','#2ecc71','#00c853'], labels=['ضعيفة جداً','ضعيفة','متوسطة','قوية','قوية جداً']; fill.style.width=widths[s]; fill.style.background=colors[s]; text.textContent='قوة كلمة المرور: '+labels[s]; text.style.color=colors[s]; }
+function setupEye(b,i,ic,oc){ const inp=document.getElementById(i), btn=document.getElementById(b), e=document.getElementById(ic), o=document.getElementById(oc); if(!inp||!btn) return; btn.addEventListener('click', ()=>{ const t=inp.type==='text'; inp.type=t?'password':'text'; e.classList.toggle('hidden', !t); o.classList.toggle('hidden', t); }); }
+setupEye('eyeBtn','password','eyeIcon','eyeOffIcon'); setupEye('eyeBtn2','confirmPassword','eyeIcon2','eyeOffIcon2');
+(function(){ const inp=document.getElementById('password'); if(inp) inp.addEventListener('input', updateStrength); })();
+(function(){ const input=document.getElementById('terms'), box=document.getElementById('customCheck'), icon=document.getElementById('checkIcon'); if(!input||!box) return; function sync(){ const c=input.checked; box.classList.toggle('checked',c); icon.classList.toggle('hidden',!c); box.setAttribute('aria-checked',String(c)); } box.addEventListener('click', ()=>{ input.checked=!input.checked; sync(); }); box.addEventListener('keydown', e=>{ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); input.checked=!input.checked; sync(); }}); input.addEventListener('change', sync); sync(); })();
+(function(){ const form=document.getElementById('signupForm'), btn=document.getElementById('signupBtn'), txt=document.getElementById('signupText'), sp=document.getElementById('signupSpinner'), ar=document.getElementById('signupArrow'); if(!form||!btn) return; let l=false; form.addEventListener('submit', async e=>{ e.preventDefault(); if(l) return; let err=false; const n=document.getElementById('fullname'), em=document.getElementById('email'), pw=document.getElementById('password'), cp=document.getElementById('confirmPassword'), tm=document.getElementById('terms'); ['fullname','email','password','confirmPassword'].forEach(id=>{ const inp=document.getElementById(id); if(inp) inp.classList.remove('is-error'); const er=document.getElementById(id==='confirmPassword'?'confirm-error':id+'-error'); if(er){ er.textContent=''; er.classList.remove('visible'); }}); const te=document.getElementById('terms-error'); if(te){ te.textContent=''; te.classList.remove('visible'); } function show(id,msg){ const inp=document.getElementById(id), er=document.getElementById(id==='confirmPassword'?'confirm-error':id+'-error'); if(inp) inp.classList.add('is-error'); if(er){ er.textContent=msg; er.classList.add('visible'); } } if(!n.value.trim()){ show('fullname','الرجاء إدخال الاسم الكامل'); err=true; } else if(n.value.trim().length<3){ show('fullname','الاسم 3 أحرف على الأقل'); err=true; } if(!em.value.trim()){ show('email','الرجاء إدخال البريد'); err=true; } else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())){ show('email','صيغة البريد غير صحيحة'); err=true; } if(!pw.value){ show('password','الرجاء إدخال كلمة المرور'); err=true; } else if(pw.value.length<8){ show('password','كلمة المرور 8 أحرف على الأقل'); err=true; } if(!cp.value){ show('confirmPassword','الرجاء تأكيد كلمة المرور'); err=true; } else if(pw.value!==cp.value){ show('confirmPassword','كلمتا المرور غير متطابقتين'); err=true; } if(!tm.checked){ if(te){ te.textContent='يجب الموافقة على الشروط'; te.classList.add('visible'); } err=true; } if(err) return; l=true; btn.disabled=true; txt.textContent='جاري إنشاء الحساب...'; sp.classList.remove('hidden'); ar.classList.add('hidden'); await new Promise(r=> setTimeout(r,1800)); l=false; btn.disabled=false; txt.textContent='إنشاء حساب'; sp.classList.add('hidden'); ar.classList.remove('hidden'); }); })();
+(function initGL(){ const c=document.getElementById('glcanvas'); gl=c.getContext('webgl',{alpha:false,antialias:true}); if(!gl) return; const vs=`attribute vec4 a_position; void main(){ gl_Position=a_position; }`; const fs=`precision highp float; uniform float u_time; uniform vec2 u_resolution; uniform vec2 u_mouse; uniform vec3 u_color1; uniform vec3 u_color2; uniform vec3 u_color3; void main(){ vec2 uv=gl_FragCoord.xy/u_resolution.xy; float s=0.5+0.5*sin(uv.x*9.0+u_time*0.34); float n=sin(uv.x*4.2+u_time*0.16)*cos(uv.y*4.6+u_time*0.22); vec3 base=mix(u_color1, u_color2*0.20, s*0.46+n*0.08); vec2 mUV=u_mouse/u_resolution; float d=distance(uv,mUV); float g=smoothstep(0.42,0.0,d)*0.13; vec3 col=base+u_color3*g; float vign=smoothstep(1.35,0.45,length(uv-0.5)*1.15); col=mix(col*0.96,col,vign); gl_FragColor=vec4(col,1.0); }`; function sh(t,s){ const o=gl.createShader(t); gl.shaderSource(o,s); gl.compileShader(o); return o; } const vsS=sh(gl.VERTEX_SHADER,vs), fsS=sh(gl.FRAGMENT_SHADER,fs); program=gl.createProgram(); gl.attachShader(program,vsS); gl.attachShader(program,fsS); gl.linkProgram(program); const buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf); gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW); const p=gl.getAttribLocation(program,'a_position'); uTime=gl.getUniformLocation(program,'u_time'); uRes=gl.getUniformLocation(program,'u_resolution'); uMouse=gl.getUniformLocation(program,'u_mouse'); uColor1=gl.getUniformLocation(program,'u_color1'); uColor2=gl.getUniformLocation(program,'u_color2'); uColor3=gl.getUniformLocation(program,'u_color3'); let mx=0,my=0; window.addEventListener('mousemove',e=>{ mx=e.clientX; my=window.innerHeight-e.clientY; },{passive:true}); function resize(){ const w=c.clientWidth,h=c.clientHeight; if(c.width!==w||c.height!==h){c.width=w;c.height=h;} } applyTheme(currentTheme); function render(t){ t*=0.001; resize(); gl.viewport(0,0,c.width,c.height); gl.useProgram(program); gl.enableVertexAttribArray(p); gl.bindBuffer(gl.ARRAY_BUFFER,buf); gl.vertexAttribPointer(p,2,gl.FLOAT,false,0,0); gl.uniform1f(uTime,t); gl.uniform2f(uRes,c.width,c.height); gl.uniform2f(uMouse,mx,my); const sc=shaderColors[currentTheme]; gl.uniform3f(uColor1,sc.c1[0],sc.c1[1],sc.c1[2]); gl.uniform3f(uColor2,sc.c2[0],sc.c2[1],sc.c2[2]); gl.uniform3f(uColor3,sc.c3[0],sc.c3[1],sc.c3[2]); gl.drawArrays(gl.TRIANGLES,0,6); requestAnimationFrame(render); } requestAnimationFrame(render); })();
+applyTheme(currentTheme);
+</script>
+</body>
+</html>
